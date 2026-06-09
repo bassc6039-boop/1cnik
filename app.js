@@ -152,6 +152,21 @@ function initDOM() {
         tabSettings: document.getElementById('sidebar-tab-settings')
     };
 
+    // Mobile: show hamburger, collapse sidebar by default
+    function handleMobileLayout() {
+        const toggle = document.getElementById('sidebar-toggle');
+        const collapsible = document.getElementById('sidebar-collapsible');
+        if (window.innerWidth <= 768) {
+            toggle.style.display = 'block';
+            collapsible.classList.remove('open');
+        } else {
+            toggle.style.display = 'none';
+            collapsible.classList.add('open');
+        }
+    }
+    handleMobileLayout();
+    window.addEventListener('resize', handleMobileLayout);
+
     // Global Search Event
     dom.searchInput.addEventListener('input', (e) => {
         state.searchQuery = e.target.value.toLowerCase().trim();
@@ -173,6 +188,12 @@ function initDOM() {
     dom.tabStarred.addEventListener('click', () => switchTab('starred'));
     dom.tabSettings.addEventListener('click', () => switchTab('settings'));
 }
+
+// Toggle sidebar on mobile
+window.toggleSidebar = function() {
+    const collapsible = document.getElementById('sidebar-collapsible');
+    collapsible.classList.toggle('open');
+};
 
 // Switch Sidebar Tabs
 function switchTab(tabName, topicIdx = -1) {

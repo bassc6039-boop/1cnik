@@ -11,38 +11,43 @@
         <!-- Sidebar -->
         <aside class="sidebar">
             <div class="sidebar-header" onclick="switchTab('home')" style="cursor: pointer; transition: opacity 0.2s;" onmouseover="this.style.opacity=0.8" onmouseout="this.style.opacity=1" title="Вернуться на главную">
-                <h1>1С:Профессионал</h1>
-                <p>Основные механизмы платформы «1С:Предприятие 8»</p>
-            </div>
-            
-            <!-- Overall Progress -->
-            <div class="progress-section">
-                <div class="progress-info">
-                    <span>Общий прогресс</span>
-                    <span id="overall-progress-text">0 / 961 изучено (0%)</span>
+                <div>
+                    <h1>1С:Профессионал</h1>
+                    <p>Основные механизмы платформы «1С:Предприятие 8»</p>
                 </div>
-                <div class="progress-bar-container">
-                    <div id="overall-progress-fill" class="progress-bar-fill"></div>
+                <button id="sidebar-toggle" onclick="event.stopPropagation(); toggleSidebar();" style="background:none; border:1px solid var(--border-color); border-radius:8px; color:var(--text-secondary); padding:8px 10px; cursor:pointer; font-size:18px; display:none;">☰</button>
+            </div>
+            
+            <div id="sidebar-collapsible" class="sidebar-collapsible open">
+                <!-- Overall Progress -->
+                <div class="progress-section">
+                    <div class="progress-info">
+                        <span>Общий прогресс</span>
+                        <span id="overall-progress-text">0 / 961 изучено (0%)</span>
+                    </div>
+                    <div class="progress-bar-container">
+                        <div id="overall-progress-fill" class="progress-bar-fill"></div>
+                    </div>
                 </div>
-            </div>
-            
-            <!-- Sidebar Navigation Tabs -->
-            <div class="sidebar-tabs">
-                <button id="sidebar-tab-home" class="tab-btn active">
-                    <span>🏠</span> Главная панель
-                </button>
-                <button id="sidebar-tab-starred" class="tab-btn">
-                    <span>★</span> Избранное
-                </button>
-                <button id="sidebar-tab-settings" class="tab-btn">
-                    <span>⚙</span> Настройки и ответы
-                </button>
-            </div>
-            
-            <!-- Topics list -->
-            <div class="topic-list-header">Разделы экзамена</div>
-            <div id="topic-list" class="topic-list-container">
-                <!-- Topics will be dynamically loaded here -->
+                
+                <!-- Sidebar Navigation Tabs -->
+                <div class="sidebar-tabs">
+                    <button id="sidebar-tab-home" class="tab-btn active">
+                        <span>🏠</span> Главная панель
+                    </button>
+                    <button id="sidebar-tab-starred" class="tab-btn">
+                        <span>★</span> Избранное
+                    </button>
+                    <button id="sidebar-tab-settings" class="tab-btn">
+                        <span>⚙</span> Настройки и ответы
+                    </button>
+                </div>
+                
+                <!-- Topics list -->
+                <div class="topic-list-header">Разделы экзамена</div>
+                <div id="topic-list" class="topic-list-container">
+                    <!-- Topics will be dynamically loaded here -->
+                </div>
             </div>
         </aside>
 

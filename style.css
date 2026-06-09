@@ -1041,36 +1041,188 @@ body {
     to { opacity: 1; transform: translateY(0); }
 }
 
-/* Responsive adjustments */
-@media (max-width: 900px) {
+/* ==================== MOBILE RESPONSIVE ==================== */
+@media (max-width: 768px) {
+
+    /* Layout: sidebar hidden by default, slides in */
     .app-container {
         flex-direction: column;
+        height: auto;
+        min-height: 100vh;
     }
-    
+
     .sidebar {
         width: 100%;
+        min-width: unset;
         height: auto;
-        max-height: 45vh;
+        max-height: none;
+        border-right: none;
+        border-bottom: 1px solid var(--border-color);
+        position: relative;
+        z-index: 100;
     }
-    
+
+    .sidebar-header {
+        padding: 16px 20px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-wrap: nowrap;
+    }
+
+    .sidebar-header h1 { font-size: 18px; margin-bottom: 2px; }
+    .sidebar-header p { font-size: 11px; }
+
+    /* Hide topic list and tabs by default on mobile, toggle via JS */
+    .sidebar-collapsible {
+        display: none;
+    }
+    .sidebar-collapsible.open {
+        display: block;
+    }
+
+    /* Top nav */
     .top-nav {
-        padding: 0 16px;
+        padding: 10px 16px;
         flex-wrap: wrap;
         height: auto;
-        padding-top: 12px;
-        padding-bottom: 12px;
-        gap: 12px;
+        gap: 10px;
     }
-    
+
     .search-bar {
         max-width: 100%;
         order: 2;
+        width: 100%;
     }
-    
+
+    .nav-right { order: 1; }
+
+    /* Content */
+    .main-content {
+        height: auto;
+        overflow: visible;
+    }
+
     .content-pane {
+        padding: 12px;
+        height: auto;
+        overflow: visible;
+    }
+
+    /* Dashboard config */
+    .settings-row-grid {
+        grid-template-columns: 1fr !important;
+    }
+
+    .topics-grid-selector {
+        grid-template-columns: 1fr !important;
+    }
+
+    /* Question cards */
+    .question-card {
+        padding: 16px;
+    }
+
+    .question-header {
+        flex-wrap: wrap;
+        gap: 8px;
+    }
+
+    .option-item {
+        padding: 12px 14px;
+        font-size: 14px;
+    }
+
+    /* Bigger tap targets for buttons */
+    .btn {
+        min-height: 44px;
+        font-size: 14px;
+        padding: 10px 16px;
+    }
+
+    /* Quiz navigation */
+    .quiz-navigation {
+        flex-wrap: wrap;
+        gap: 10px;
+        justify-content: center;
+    }
+
+    .quiz-navigation .btn {
+        flex: 1;
+        min-width: 120px;
+        justify-content: center;
+    }
+
+    /* Exam header */
+    .quiz-header {
+        flex-direction: column;
+        gap: 8px;
+        align-items: flex-start;
+    }
+
+    /* Navigator dots — smaller on mobile */
+    .quiz-navigator-dots {
+        gap: 4px;
+        flex-wrap: wrap;
+    }
+
+    .quiz-dot {
+        width: 28px;
+        height: 28px;
+        font-size: 10px;
+    }
+
+    /* Results card */
+    .quiz-results-score {
+        font-size: 48px;
+    }
+
+    /* Analytics */
+    .analytics-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .chart-stack-legend {
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+
+    /* Hide topic list on mobile unless expanded */
+    .topic-list-container {
+        max-height: 200px;
+    }
+
+    /* Welcome banner */
+    .welcome-banner {
+        padding: 20px;
+    }
+
+    .welcome-banner h2 {
+        font-size: 18px;
+    }
+
+    /* Config section */
+    .config-section {
+        padding: 16px;
+    }
+
+    /* Radio cards stack vertically */
+    .radio-group-vertical {
+        gap: 8px;
+    }
+
+    /* Settings boxes */
+    .settings-box {
         padding: 16px;
     }
 }
+
+/* Small phones */
+@media (max-width: 400px) {
+    .sidebar-header h1 { font-size: 15px; }
+    .quiz-results-score { font-size: 36px; }
+    .quiz-dot { width: 24px; height: 24px; font-size: 9px; }
+}
+
 
 /* Analytics & Custom Charts */
 .analytics-grid {
