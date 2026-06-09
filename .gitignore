@@ -1,0 +1,18 @@
+# Python cache
+__pycache__/
+*.pyc
+
+# Python scripts (не нужны для сайта)
+*.py
+ai_answers.json
+mapped_answers.json
+cleaned_questions.txt
+end_pages.txt
+page24.txt
+pdf_preview.txt
+questions.json
+questions.md
+topics_debug.txt
+
+# PDF исходник
+*.pdf

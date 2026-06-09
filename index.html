@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>1С:Профессионал — Подготовка к экзамену</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-header" onclick="switchTab('home')" style="cursor: pointer; transition: opacity 0.2s;" onmouseover="this.style.opacity=0.8" onmouseout="this.style.opacity=1" title="Вернуться на главную">
+                <h1>1С:Профессионал</h1>
+                <p>Основные механизмы платформы «1С:Предприятие 8»</p>
+            </div>
+            
+            <!-- Overall Progress -->
+            <div class="progress-section">
+                <div class="progress-info">
+                    <span>Общий прогресс</span>
+                    <span id="overall-progress-text">0 / 961 изучено (0%)</span>
+                </div>
+                <div class="progress-bar-container">
+                    <div id="overall-progress-fill" class="progress-bar-fill"></div>
+                </div>
+            </div>
+            
+            <!-- Sidebar Navigation Tabs -->
+            <div class="sidebar-tabs">
+                <button id="sidebar-tab-home" class="tab-btn active">
+                    <span>🏠</span> Главная панель
+                </button>
+                <button id="sidebar-tab-starred" class="tab-btn">
+                    <span>★</span> Избранное
+                </button>
+                <button id="sidebar-tab-settings" class="tab-btn">
+                    <span>⚙</span> Настройки и ответы
+                </button>
+            </div>
+            
+            <!-- Topics list -->
+            <div class="topic-list-header">Разделы экзамена</div>
+            <div id="topic-list" class="topic-list-container">
+                <!-- Topics will be dynamically loaded here -->
+            </div>
+        </aside>
+
+        <!-- Main Content Area -->
+        <main class="main-content">
+            <!-- Top Navigation -->
+            <header class="top-nav">
+                <div class="nav-left">
+                    <div class="search-bar">
+                        <span class="search-icon">🔍</span>
+                        <input type="text" id="search-input" placeholder="Поиск по вопросам или ответам...">
+                    </div>
+                </div>
+                <div class="nav-right" id="top-nav-actions">
+                    <button id="btn-show-unlearned" class="btn" title="Показать только неизученные вопросы">
+                        ✔ Неизученные
+                    </button>
+                </div>
+            </header>
+
+            <!-- Scrollable Questions and Dashboard Container -->
+            <section id="content-container" class="content-pane">
+                <!-- Dynamic Content (Dashboard, Topics Questions, Exam, Settings) loads here -->
+            </section>
+        </main>
+    </div>
+
+    <!-- Data and Application Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="questions_data.js"></script>
+    <script src="answers_data.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
