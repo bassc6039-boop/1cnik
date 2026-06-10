@@ -1085,6 +1085,8 @@ body {
 
     body {
         display: block;
+        height: auto;
+        overflow-y: auto;
         overflow-x: hidden;
     }
 
@@ -1093,6 +1095,7 @@ body {
         width: 100%;
         height: auto;
         min-height: 100vh;
+        overflow: visible;
     }
 
     /* SIDEBAR */
