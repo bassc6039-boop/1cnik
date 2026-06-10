@@ -205,6 +205,10 @@ function switchTab(tabName, topicIdx = -1) {
         state.session.isActive = false;
     }
     
+    // Clear selected answers when navigating away — prevents stale state
+    state.selectedAnswers = {};
+    state.revealAnswers = {};
+    
     state.activeTab = tabName;
     state.currentTopicIdx = topicIdx;
     
@@ -216,6 +220,7 @@ function switchTab(tabName, topicIdx = -1) {
     renderTopicsList();
     renderActiveContent();
 }
+
 
 // Calculate total statistics
 function updateOverallProgress() {
@@ -576,6 +581,7 @@ window.startSession = function() {
         timerInterval: null
     };
     
+    state.selectedAnswers = {}; // Clear previous answers when starting a new session!
     state.revealAnswers = {};
     
     if (mode === 'exam') {
@@ -747,6 +753,17 @@ function updateCardContent(card, q, isSessionMode = false) {
         answerStatusHtml = `<span style="font-size:12px; color:var(--text-secondary);">Ответ задан</span>`;
     }
     
+    let imagesHtml = '';
+    if (window.imageMapping && window.imageMapping[q.number]) {
+        window.imageMapping[q.number].forEach(imgName => {
+            imagesHtml += `
+                <div class="question-image-container">
+                    <img class="question-image" src="images/${imgName}" alt="Иллюстрация к вопросу ${q.number}" onclick="zoomImage(this)">
+                </div>
+            `;
+        });
+    }
+
     card.innerHTML = `
         <div class="question-header">
             <span class="question-num-tag">${q.number}</span>
@@ -764,7 +781,7 @@ function updateCardContent(card, q, isSessionMode = false) {
             </div>
         </div>
         <div class="question-text">${escapeHtml(q.question_text)}</div>
-        
+        ${imagesHtml}
         <div class="options-list">
             ${optionsHtml}
         </div>
@@ -911,6 +928,17 @@ function renderExamView() {
         `;
     });
     
+    let imagesHtml = '';
+    if (window.imageMapping && window.imageMapping[currentQuestion.number]) {
+        window.imageMapping[currentQuestion.number].forEach(imgName => {
+            imagesHtml += `
+                <div class="question-image-container">
+                    <img class="question-image" src="images/${imgName}" alt="Иллюстрация к вопросу ${currentQuestion.number}" onclick="zoomImage(this)">
+                </div>
+            `;
+        });
+    }
+
     card.innerHTML = `
         <div class="question-header">
             <span class="question-num-tag">${currentQuestion.number}</span>
@@ -924,6 +952,7 @@ function renderExamView() {
             </div>
         </div>
         <div class="question-text">${escapeHtml(currentQuestion.question_text)}</div>
+        ${imagesHtml}
         <div class="options-list">
             ${optionsHtml}
         </div>
@@ -1435,3 +1464,25 @@ function createEmptyState() {
     `;
     return div;
 }
+
+window.zoomImage = function(imgEl) {
+    const modal = document.getElementById('image-zoom-modal');
+    const modalImg = document.getElementById('zoom-modal-img');
+    if (modal && modalImg) {
+        modalImg.src = imgEl.src;
+        modal.classList.add('open');
+    }
+};
+
+window.closeZoomModal = function() {
+    const modal = document.getElementById('image-zoom-modal');
+    if (modal) {
+        modal.classList.remove('open');
+    }
+};
+
+document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+        window.closeZoomModal();
+    }
+});

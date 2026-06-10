@@ -75,10 +75,17 @@
         </main>
     </div>
 
+    <!-- Image Zoom Modal -->
+    <div id="image-zoom-modal" class="zoom-modal" onclick="closeZoomModal()">
+        <span class="zoom-close">&times;</span>
+        <img class="zoom-content" id="zoom-modal-img">
+    </div>
+
     <!-- Data and Application Scripts -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="questions_data.js"></script>
     <script src="answers_data.js"></script>
+    <script src="image_mapping_data.js"></script>
     <script src="app.js"></script>
 </body>
 </html>
