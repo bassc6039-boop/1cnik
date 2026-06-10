@@ -1,7 +1,7 @@
-// Position-based image mapping - accurate per-question assignment
+// PyMuPDF Position-based image mapping
 window.imageMapping = {
   "2.9": [
-    "page_25_img_1.png"
+    "page_25_img_1.jpeg"
   ],
   "2.23": [
     "page_28_img_1.png"
@@ -19,19 +19,19 @@ window.imageMapping = {
     "page_40_img_1.png"
   ],
   "3.13": [
-    "page_41_img_1.png"
+    "page_41_img_1.jpeg"
   ],
   "3.28": [
-    "page_44_img_1.png"
+    "page_44_img_1.jpeg"
   ],
   "3.66": [
     "page_52_img_1.png"
   ],
   "4.11": [
-    "page_56_img_1.png"
+    "page_56_img_1.jpeg"
   ],
   "4.13": [
-    "page_57_img_1.png"
+    "page_57_img_1.jpeg"
   ],
   "4.16": [
     "page_59_img_1.png"
@@ -40,10 +40,10 @@ window.imageMapping = {
     "page_60_img_1.png"
   ],
   "4.28": [
-    "page_62_img_1.png"
+    "page_62_img_1.jpeg"
   ],
   "4.31": [
-    "page_63_img_1.png"
+    "page_63_img_1.jpeg"
   ],
   "4.33": [
     "page_64_img_1.png"
@@ -56,6 +56,9 @@ window.imageMapping = {
   ],
   "5.30": [
     "page_78_img_1.png"
+  ],
+  "5.31": [
+    "page_78_img_2.png"
   ],
   "5.39": [
     "page_80_img_1.png"
@@ -73,132 +76,151 @@ window.imageMapping = {
     "page_117_img_1.png"
   ],
   "10.26": [
-    "page_139_img_1.png"
+    "page_139_img_1.jpeg"
   ],
   "10.55": [
     "page_145_img_1.png"
   ],
   "10.65": [
-    "page_148_img_1.png"
+    "page_148_img_1.jpeg"
   ],
   "10.68": [
     "page_149_img_1.png"
   ],
   "10.74": [
-    "page_151_img_1.png"
+    "page_151_img_1.jpeg"
   ],
   "10.77": [
-    "page_152_img_1.png"
+    "page_152_img_1.jpeg"
   ],
   "10.78": [
-    "page_153_img_1.png"
+    "page_153_img_1.jpeg"
   ],
   "10.81": [
-    "page_155_img_1.png"
+    "page_155_img_1.jpeg"
   ],
   "10.82": [
-    "page_156_img_1.png",
-    "page_156_img_2.png"
+    "page_156_img_1.jpeg"
+  ],
+  "10.84": [
+    "page_156_img_2.jpeg"
   ],
   "10.85": [
-    "page_157_img_1.png",
-    "page_157_img_2.png"
+    "page_157_img_1.jpeg"
+  ],
+  "10.86": [
+    "page_157_img_2.jpeg"
   ],
   "10.87": [
-    "page_158_img_1.png",
-    "page_158_img_2.png"
+    "page_158_img_1.jpeg"
+  ],
+  "10.88": [
+    "page_158_img_2.jpeg"
   ],
   "10.89": [
-    "page_159_img_1.png"
+    "page_159_img_1.jpeg"
+  ],
+  "10.90": [
+    "page_159_img_2.jpeg"
   ],
   "10.94": [
-    "page_160_img_1.png"
+    "page_160_img_1.jpeg"
+  ],
+  "10.95": [
+    "page_160_img_2.jpeg"
   ],
   "10.96": [
-    "page_161_img_1.png"
+    "page_161_img_1.jpeg"
   ],
   "10.97": [
-    "page_162_img_1.png"
+    "page_162_img_1.jpeg"
   ],
   "10.98": [
-    "page_163_img_1.png"
+    "page_163_img_1.jpeg"
   ],
   "10.99": [
-    "page_164_img_1.png"
+    "page_164_img_1.jpeg"
   ],
   "10.100": [
-    "page_165_img_1.png"
+    "page_165_img_1.jpeg"
   ],
   "10.101": [
-    "page_166_img_1.png"
+    "page_166_img_1.jpeg"
   ],
   "10.102": [
-    "page_167_img_1.png"
+    "page_167_img_1.jpeg"
   ],
   "10.103": [
-    "page_168_img_1.png",
-    "page_168_img_2.png"
+    "page_168_img_1.jpeg"
+  ],
+  "10.104": [
+    "page_168_img_2.jpeg"
   ],
   "10.112": [
-    "page_170_img_1.png"
+    "page_170_img_1.jpeg"
   ],
   "10.114": [
-    "page_171_img_1.png",
-    "page_171_img_2.png"
+    "page_171_img_1.jpeg"
+  ],
+  "10.115": [
+    "page_171_img_2.jpeg"
   ],
   "11.11": [
-    "page_177_img_1.png"
+    "page_177_img_1.jpeg"
   ],
   "11.12": [
-    "page_178_img_1.png"
+    "page_178_img_1.jpeg"
   ],
   "11.29": [
-    "page_182_img_1.png"
+    "page_182_img_1.jpeg"
   ],
   "11.42": [
-    "page_185_img_1.png"
+    "page_185_img_1.jpeg"
   ],
   "11.43": [
-    "page_186_img_1.png"
+    "page_186_img_1.jpeg"
   ],
   "11.44": [
-    "page_187_img_1.png"
+    "page_187_img_1.jpeg"
   ],
   "11.45": [
-    "page_188_img_1.png"
+    "page_188_img_1.jpeg"
   ],
   "11.49": [
-    "page_189_img_1.png"
+    "page_189_img_1.jpeg"
   ],
   "11.50": [
-    "page_190_img_1.png"
+    "page_190_img_1.jpeg"
+  ],
+  "11.51": [
+    "page_190_img_2.jpeg"
   ],
   "12.55": [
-    "page_202_img_1.png"
+    "page_202_img_1.jpeg"
   ],
   "12.56": [
-    "page_203_img_1.png"
+    "page_203_img_1.jpeg"
   ],
   "12.57": [
-    "page_204_img_1.png"
+    "page_204_img_1.jpeg"
   ],
   "12.58": [
-    "page_205_img_1.png"
+    "page_205_img_1.jpeg"
   ],
   "12.59": [
-    "page_206_img_1.png"
+    "page_206_img_1.jpeg"
   ],
   "12.60": [
-    "page_207_img_1.png"
+    "page_207_img_1.jpeg"
   ],
   "12.61": [
-    "page_208_img_1.png"
+    "page_208_img_1.jpeg"
   ],
   "12.71": [
-    "page_211_img_1.png"
+    "page_211_img_1.jpeg"
   ],
   "12.72": [
-    "page_212_img_1.png"
+    "page_212_img_1.jpeg"
   ],
   "14.42": [
     "page_233_img_1.png"
@@ -210,6 +232,6 @@ window.imageMapping = {
     "page_236_img_1.png"
   ],
   "14.55": [
-    "page_238_img_1.png"
+    "page_238_img_1.jpeg"
   ]
 };
