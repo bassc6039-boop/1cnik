@@ -66,7 +66,7 @@ body {
 .app-container {
     display: flex;
     width: 100vw;
-    height: 100vh;
+    min-height: 100vh;
 }
 
 /* Sidebar Styling */
@@ -77,8 +77,11 @@ body {
     border-right: 1px solid var(--border-color);
     display: flex;
     flex-direction: column;
-    height: 100%;
+    height: 100vh;
+    position: sticky;
+    top: 0;
     z-index: 10;
+    flex-shrink: 0;
 }
 
 .sidebar-header {
@@ -277,16 +280,17 @@ body {
     flex: 1;
     display: flex;
     flex-direction: column;
-    height: 100%;
+    min-height: 100vh;
     background-color: var(--bg-main);
     position: relative;
+    overflow: visible;
 }
 
 /* Top Navigation Bar */
 .top-nav {
     height: 70px;
     border-bottom: 1px solid var(--border-color);
-    background-color: rgba(19, 26, 38, 0.8);
+    background-color: rgba(19, 26, 38, 0.95);
     backdrop-filter: blur(12px);
     display: flex;
     align-items: center;
@@ -398,11 +402,40 @@ body {
 /* Content Pane */
 .content-pane {
     flex: 1;
-    overflow-y: auto;
+    overflow-y: visible;
     padding: 32px;
     max-width: 960px;
     margin: 0 auto;
     width: 100%;
+}
+
+/* Floating session exit button */
+.session-exit-fab {
+    position: fixed;
+    bottom: 28px;
+    right: 28px;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 13px 22px;
+    background: rgba(239, 68, 68, 0.18);
+    border: 1px solid rgba(239, 68, 68, 0.35);
+    border-radius: 50px;
+    color: #f87171;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    backdrop-filter: blur(12px);
+    box-shadow: 0 4px 24px rgba(0,0,0,0.35);
+    transition: all 0.2s ease;
+    font-family: 'Inter', sans-serif;
+}
+.session-exit-fab:hover {
+    background: rgba(239, 68, 68, 0.28);
+    border-color: rgba(239, 68, 68, 0.5);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 28px rgba(0,0,0,0.4);
 }
 
 /* Dashboard Style */

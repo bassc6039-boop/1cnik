@@ -126,6 +126,7 @@ function saveProgress() {
 
 // Initialize Application
 document.addEventListener('DOMContentLoaded', () => {
+    console.log('[1C] imageMapping loaded:', window.imageMapping ? Object.keys(window.imageMapping).length + ' questions' : 'NOT FOUND');
     loadProgress();
     initDOM();
     renderTopicsList();
@@ -203,6 +204,7 @@ function switchTab(tabName, topicIdx = -1) {
         }
         stopTimer();
         state.session.isActive = false;
+        hideSessionFAB();
     }
     
     // Clear selected answers when navigating away — prevents stale state
@@ -685,13 +687,8 @@ function renderStudySessionView() {
         listDiv.appendChild(createQuestionCard(q, true));
     });
     
-    // Big finish button at the bottom
-    const finishBar = document.createElement('div');
-    finishBar.style.cssText = 'display:flex; justify-content:center; padding: 32px 0 16px;';
-    finishBar.innerHTML = `<button class="btn btn-danger" onclick="exitSession()" style="padding: 14px 40px; font-size:15px;">✅ Завершить сессию обучения</button>`;
-    listDiv.appendChild(finishBar);
-    
     dom.contentContainer.appendChild(listDiv);
+    showSessionFAB();
 }
 
 // Create Question Card HTML element
@@ -1019,6 +1016,7 @@ function renderExamView() {
     
     dom.contentContainer.appendChild(quizWrapper);
     updateExamTimerDisplay();
+    showSessionFAB();
 }
 
 // Finish Exam Session
@@ -1175,10 +1173,27 @@ function saveSessionResults(questions) {
     });
 }
 
+// Floating exit button during sessions
+function showSessionFAB() {
+    hideSessionFAB();
+    const fab = document.createElement('button');
+    fab.id = 'session-exit-fab';
+    fab.className = 'session-exit-fab';
+    fab.innerHTML = '✕ Завершить сессию';
+    fab.onclick = exitSession;
+    document.body.appendChild(fab);
+}
+
+function hideSessionFAB() {
+    const existing = document.getElementById('session-exit-fab');
+    if (existing) existing.remove();
+}
+
 // Exit Study/Exam Session back to Dashboard
 function exitSession() {
     stopTimer();
-    
+    hideSessionFAB();
+
     // Save study session stats to history
     if (state.session && state.session.questions && state.session.mode === 'study') {
         saveSessionResults(state.session.questions);
